@@ -29,6 +29,19 @@ wheels = [
 ]
 
 [[package]]
+name = "astunparse"
+version = "1.6.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "six" },
+    { name = "wheel" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f3/af/4182184d3c338792894f34a62672919db7ca008c89abee9b564dd34d8029/astunparse-1.6.3.tar.gz", hash = "sha256:5ad93a8456f0d084c3456d059fd9a92cce667963232cbf763eac3bc5b7940872", size = 18290 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2b/03/13dde6512ad7b4557eb792fbcf0c653af6076b81e5941d36ec61f7ce6028/astunparse-1.6.3-py2.py3-none-any.whl", hash = "sha256:c2652417f2c8b5bb325c885ae329bdf3f86424075c4fd1a128674bc6fba4b8e8", size = 12732 },
+]
+
+[[package]]
 name = "babel"
 version = "2.16.0"
 source = { registry = "https://pypi.org/simple" }
@@ -361,6 +374,19 @@ wheels = [
 ]
 
 [[package]]
+name = "griffe"
+version = "1.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "astunparse", marker = "python_full_version < '3.9'" },
+    { name = "colorama" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/05/e9/b2c86ad9d69053e497a24ceb25d661094fb321ab4ed39a8b71793dcbae82/griffe-1.4.0.tar.gz", hash = "sha256:8fccc585896d13f1221035d32c50dec65830c87d23f9adb9b1e6f3d63574f7f5", size = 381028 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/22/7c/e9e66869c2e4c9b378474e49c993128ec0131ef4721038b6d06e50538caf/griffe-1.4.0-py3-none-any.whl", hash = "sha256:e589de8b8c137e99a46ec45f9598fc0ac5b6868ce824b24db09c02d117b89bc5", size = 127015 },
+]
+
+[[package]]
 name = "h11"
 version = "0.14.0"
 source = { registry = "https://pypi.org/simple" }
@@ -594,14 +620,13 @@ wheels = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.5.32+insiders.4.53.12"
-source = { registry = "https://pppr.pydantic.dev/simple/" }
+version = "9.5.46"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "babel" },
     { name = "colorama" },
     { name = "jinja2" },
     { name = "markdown" },
-    { name = "mergedeep" },
     { name = "mkdocs" },
     { name = "mkdocs-material-extensions" },
     { name = "paginate" },
@@ -610,8 +635,9 @@ dependencies = [
     { name = "regex" },
     { name = "requests" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/79/f1/3efdd8f000e497e9a13ba9429d4fdeb0d87f0f876bebd7d8613ff86a8910/mkdocs_material-9.5.46.tar.gz", hash = "sha256:ae2043f4238e572f9a40e0b577f50400d6fc31e2fef8ea141800aebf3bd273d7", size = 3910723 }
 wheels = [
-    { url = "https://pppr.pydantic.dev/simple/mkdocs-material/mkdocs_material-9.5.32+insiders.4.53.12-py3-none-any.whl" },
+    { url = "https://files.pythonhosted.org/packages/9f/64/af210ec1bc40fb2f195b7feede4c895c54c94acc48b108a2ad28b79d226f/mkdocs_material-9.5.46-py3-none-any.whl", hash = "sha256:98f0a2039c62e551a68aad0791a8d41324ff90c03a6e6cea381a384b84908b83", size = 8625807 },
 ]
 
 [[package]]
@@ -642,6 +668,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/e6/bf/170ff04de72227f715d67da32950c7b8434449f3805b2ec3dd1085db4d7c/mkdocstrings-0.26.1.tar.gz", hash = "sha256:bb8b8854d6713d5348ad05b069a09f3b79edbc6a0f33a34c6821141adb03fe33", size = 92677 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/23/cc/8ba127aaee5d1e9046b0d33fa5b3d17da95a9d705d44902792e0569257fd/mkdocstrings-0.26.1-py3-none-any.whl", hash = "sha256:29738bfb72b4608e8e55cc50fb8a54f325dc7ebd2014e4e3881a49892d5983cf", size = 29643 },
+]
+
+[[package]]
+name = "mkdocstrings-python"
+version = "1.11.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "griffe" },
+    { name = "mkdocs-autorefs" },
+    { name = "mkdocstrings" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/fc/ba/534c934cd0a809f51c91332d6ed278782ee4126b8ba8db02c2003f162b47/mkdocstrings_python-1.11.1.tar.gz", hash = "sha256:8824b115c5359304ab0b5378a91f6202324a849e1da907a3485b59208b797322", size = 166890 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2f/f2/2a2c48fda645ac6bbe73bcc974587a579092b6868e6ff8bc6d177f4db38a/mkdocstrings_python-1.11.1-py3-none-any.whl", hash = "sha256:a21a1c05acef129a618517bb5aae3e33114f569b11588b1e7af3e9d4061a71af", size = 109297 },
 ]
 
 [[package]]
@@ -1070,7 +1110,7 @@ wheels = [
 
 [[package]]
 name = "siteforge"
-version = "0.1.0"
+version = "0.0.1"
 source = { editable = "." }
 dependencies = [
     { name = "starlette" },
@@ -1089,8 +1129,9 @@ dev = [
     { name = "ruff" },
 ]
 docs = [
+    { name = "mkdocs" },
     { name = "mkdocs-material" },
-    { name = "mkdocstrings" },
+    { name = "mkdocstrings-python" },
 ]
 
 [package.metadata]
@@ -1111,8 +1152,9 @@ dev = [
     { name = "ruff" },
 ]
 docs = [
+    { name = "mkdocs" },
     { name = "mkdocs-material" },
-    { name = "mkdocstrings" },
+    { name = "mkdocstrings-python" },
 ]
 
 [[package]]
@@ -1250,6 +1292,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/d0/d8/cdb0c21a4a988669d7c210c75c6a2c9a0e16a3b08d9f7e633df0d9a16ad8/watchdog-4.0.2-py3-none-win32.whl", hash = "sha256:0d8a7e523ef03757a5aa29f591437d64d0d894635f8a50f370fe37f913ce4e19", size = 82935 },
     { url = "https://files.pythonhosted.org/packages/99/2e/b69dfaae7a83ea64ce36538cc103a3065e12c447963797793d5c0a1d5130/watchdog-4.0.2-py3-none-win_amd64.whl", hash = "sha256:c344453ef3bf875a535b0488e3ad28e341adbd5a9ffb0f7d62cefacc8824ef2b", size = 82934 },
     { url = "https://files.pythonhosted.org/packages/b0/0b/43b96a9ecdd65ff5545b1b13b687ca486da5c6249475b1a45f24d63a1858/watchdog-4.0.2-py3-none-win_ia64.whl", hash = "sha256:baececaa8edff42cd16558a639a9b0ddf425f93d892e8392a56bf904f5eff22c", size = 82933 },
+]
+
+[[package]]
+name = "wheel"
+version = "0.45.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/8a/98/2d9906746cdc6a6ef809ae6338005b3f21bb568bea3165cfc6a243fdc25c/wheel-0.45.1.tar.gz", hash = "sha256:661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729", size = 107545 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0b/2c/87f3254fd8ffd29e4c02732eee68a83a1d3c346ae39bc6822dcbcb697f2b/wheel-0.45.1-py3-none-any.whl", hash = "sha256:708e7481cc80179af0e556bbf0cc00b8444c7321e2700b8d8580231d13017248", size = 72494 },
 ]
 
 [[package]]
