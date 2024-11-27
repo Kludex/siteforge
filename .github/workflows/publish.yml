@@ -43,6 +43,7 @@ jobs:
 
     permissions:
       id-token: write
+      contents: read
 
     environment:
       name: pypi
