@@ -5,7 +5,7 @@ build-backend = 'hatchling.build'
 [project]
 name = "siteforge"
 description = "An awesome package is coming soon! 🎉"
-version = "0.1.0"
+version = "0.0.1"
 readme = "README.md"
 authors = [{ name = "Marcelo Trylesinski", email = "marcelotryle@gmail.com" }]
 classifiers = [
