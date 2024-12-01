@@ -12,3 +12,4 @@
 - [ ] Add `HEAD` method on `GET` routes.
 - [ ] Health endpoint.
     - [ ] Don't print access logs on health endpoint.
+- [ ] Add own routing system.
