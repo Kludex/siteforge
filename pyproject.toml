@@ -28,6 +28,9 @@ requires-python = ">=3.8"
 dependencies = ["starlette>=0.41.3", "uvicorn>=0.32.1"]
 optional-dependencies = {}
 
+[project.scripts]
+sf = "siteforge.__main__:main"
+
 [project.urls]
 Homepage = "https://github.com/Kludex/siteforge"
 Source = "https://github.com/Kludex/siteforge"
