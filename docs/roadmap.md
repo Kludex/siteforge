@@ -1,0 +1,7 @@
+- [ ] AsyncAPI support.
+- [ ] WebSockets documentation.
+- [ ] Own `TestClient` with both flavors: `async` and `sync`.
+- [ ] Generate clients for other languages via CLI.
+- [ ] Support lifespan on child apps.
+- [ ] Add `uvicorn` as only server.
+- [ ] Runtime warning when sending back an exception that is not documented.

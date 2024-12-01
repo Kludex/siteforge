@@ -40,6 +40,7 @@ theme:
 
 nav:
   - Home: index.md
+  - Roadmap: roadmap.md
   - API Reference: api.md
 
 markdown_extensions:
@@ -53,6 +54,8 @@ markdown_extensions:
   - tables
   - smarty
   - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 watch:
   - siteforge
