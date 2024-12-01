@@ -28,6 +28,7 @@ class SiteForge(Starlette):
         lifespan: Any | None = None,
     ) -> None:
         self.debug = debug
+        # TODO: Remove the state.
         self.state = State()
         self.router = Router(routes, lifespan=lifespan)
         self.exception_handlers = {}
