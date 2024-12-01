@@ -1,2 +1,3 @@
-# pyright: reportUnusedImport=false
-from starlette.requests import Request  # noqa: F401
+from starlette.requests import Request
+
+__all__ = ("Request",)

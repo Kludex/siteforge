@@ -1,2 +1,3 @@
-# pyright: reportUnusedImport=false
-from starlette.templating import Jinja2Templates  # noqa: F401
+from starlette.templating import Jinja2Templates
+
+__all__ = ("Jinja2Templates",)

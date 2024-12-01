@@ -54,6 +54,9 @@ markdown_extensions:
   - smarty
   - pymdownx.tabbed
 
+watch:
+  - siteforge
+
 plugins:
   - search
   - mkdocstrings:

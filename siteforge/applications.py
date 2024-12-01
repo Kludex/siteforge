@@ -1,4 +1,3 @@
-# pyright: reportUnusedImport=false
 from starlette.applications import Starlette
 
 

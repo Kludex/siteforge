@@ -1,2 +1,3 @@
-# pyright: reportUnusedImport=false
-from starlette.staticfiles import StaticFiles  # noqa: F401
+from starlette.staticfiles import StaticFiles
+
+__all__ = ("StaticFiles",)

@@ -1,2 +1,3 @@
-# pyright: reportUnusedImport=false
-from starlette.routing import BaseRoute, Host, Mount, Route, Router, WebSocketRoute  # noqa: F401
+from starlette.routing import BaseRoute, Host, Mount, Route, Router, WebSocketRoute
+
+__all__ = ("BaseRoute", "Host", "Mount", "Route", "Router", "WebSocketRoute")

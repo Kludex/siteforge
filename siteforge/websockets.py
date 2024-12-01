@@ -1,2 +1,3 @@
-# pyright: reportUnusedImport=false
-from starlette.websockets import WebSocket, WebSocketDisconnect  # noqa: F401
+from starlette.websockets import WebSocket, WebSocketDisconnect
+
+__all__ = ("WebSocket", "WebSocketDisconnect")
