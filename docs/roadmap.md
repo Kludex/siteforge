@@ -5,3 +5,10 @@
 - [ ] Support lifespan on child apps.
 - [ ] Add `uvicorn` as only server.
 - [ ] Runtime warning when sending back an exception that is not documented.
+- [ ] More plugable background tasks API.
+- [ ] OpenTelemetry support.
+    - [ ] Add `system.uptime` metric (https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/31627).
+- [ ] Automatic cache on `GET` and `HEAD` methods (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+- [ ] Add `HEAD` method on `GET` routes.
+- [ ] Health endpoint.
+    - [ ] Don't print access logs on health endpoint.
