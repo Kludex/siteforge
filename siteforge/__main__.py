@@ -15,15 +15,14 @@ def version_callback() -> None:
 
 
 def parse_run(args: argparse.Namespace) -> None:
+    """Run the application."""
     from siteforge._server import run
 
     run(args.app, host=args.host, port=args.port)
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        prog="SiteForge", description="SiteForge command line interface.", epilog="SiteForge is a web framework."
-    )
+    parser = argparse.ArgumentParser(prog="SiteForge", description="SiteForge command line interface.")
     parser.add_argument("--version", action="store_true", help="show the version and exit")
 
     subparsers = parser.add_subparsers(title="commands", metavar="")
