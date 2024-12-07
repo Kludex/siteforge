@@ -1,10 +1,7 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = 'hatchling.build'
-
 [project]
-name = "siteforge"
+name = "monorepo"
 description = "An awesome package is coming soon! 🎉"
+# TODO: This needs to be dynamic (https://hatch.pypa.io/latest/version/).
 version = "0.0.2"
 readme = "README.md"
 authors = [{ name = "Marcelo Trylesinski", email = "marcelotryle@gmail.com" }]
@@ -23,16 +20,9 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
-license = "MIT"
 requires-python = ">=3.8"
-dependencies = ["starlette>=0.41.3"]
+dependencies = ["siteforge", "forgeserver", "asgi-types"]
 optional-dependencies = {}
-
-[project.urls]
-Homepage = "https://github.com/Kludex/siteforge"
-Source = "https://github.com/Kludex/siteforge"
-Twitter = "https://twitter.com/marcelotryle"
-Funding = "https://github.com/sponsors/Kludex"
 
 [dependency-groups]
 dev = [
@@ -48,11 +38,17 @@ dev = [
 ]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings-python"]
 
-[tool.hatch.metadata]
-allow-direct-references = true
+[tool.uv]
+package = false
+default-groups = ["dev", "docs"]
 
-[tool.hatch.build.targets.sdist]
-include = ["/README.md", "LICENSE", "/siteforge", "/tests"]
+[tool.uv.sources]
+siteforge = { workspace = true }
+forgeserver = { workspace = true }
+asgi-types = { workspace = true }
+
+[tool.uv.workspace]
+members = ["src/*/"]
 
 [tool.mypy]
 strict = true
