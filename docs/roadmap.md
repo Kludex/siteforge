@@ -1,3 +1,5 @@
+## SiteForge
+
 - [ ] AsyncAPI support.
 - [ ] WebSockets documentation.
 - [ ] Own `TestClient` with both flavors: `async` and `sync`.
@@ -13,3 +15,17 @@
 - [ ] Health endpoint.
     - [ ] Don't print access logs on health endpoint.
 - [ ] Add own routing system.
+- [ ] Add benchmarks.
+- [ ] Remove anyio, but still support trio.
+- [ ] Rust multipart package.
+- [ ] Remove support for ASGI 2.
+- [ ] Multiple response output format depending on the `Accept` header.
+
+## ForgeServer
+
+- [ ] HTTP/2 support.
+- [ ] HTTP/3 support.
+- [ ] WebSockets sans-io support.
+- [ ] Create Rust HTTP parser, and use it.
+- [ ] Wait for first body response to send headers.
+- [ ] Remove support for ASGI 2.
