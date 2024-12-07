@@ -192,7 +192,7 @@ def test_app_unimportable_module() -> None:
 
 
 def test_app_unimportable_other(caplog: pytest.LogCaptureFixture) -> None:
-    config = Config(app="tests.test_config:app")
+    config = Config(app="forgeserver.tests.test_config:app")
     with pytest.raises(SystemExit):
         config.load()
     error_messages = [
