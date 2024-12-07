@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Callable, ParamSpec, TypeVar
+from typing import TYPE_CHECKING
 
 from starlette.routing import BaseRoute, Host, Mount, Route, Router as _Router, WebSocketRoute
 
 if TYPE_CHECKING:
-    from typing import Callable, ParamSpec, TypeVar
+    from typing import Any, Callable, ParamSpec, TypeVar
 
     _P = ParamSpec("_P")
     _R = TypeVar("_R")
