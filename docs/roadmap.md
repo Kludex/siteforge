@@ -34,3 +34,7 @@
 
 - [ ] Run tests only when source code imported had changes.
 - [ ] Set development VERSION to `0.0.0`, and publish on every PR to `pypi.test`.
+
+## Documentation
+
+- [ ] Add comments and reactions.
