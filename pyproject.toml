@@ -2,7 +2,7 @@
 name = "monorepo"
 description = "An awesome package is coming soon! 🎉"
 # TODO: This needs to be dynamic (https://hatch.pypa.io/latest/version/).
-version = "0.0.2"
+version = "0.0.0"
 readme = "README.md"
 authors = [{ name = "Marcelo Trylesinski", email = "marcelotryle@gmail.com" }]
 classifiers = [
