@@ -26,7 +26,7 @@ wheels = [
 
 [[package]]
 name = "asgi-types"
-version = "0.0.2"
+version = "0.0.3"
 source = { editable = "src/asgi-types" }
 
 [[package]]
@@ -376,7 +376,7 @@ wheels = [
 
 [[package]]
 name = "forgeserver"
-version = "0.0.2"
+version = "0.0.3"
 source = { editable = "src/forgeserver" }
 
 [[package]]
@@ -695,7 +695,7 @@ wheels = [
 
 [[package]]
 name = "monorepo"
-version = "0.0.2"
+version = "0.0.0"
 source = { virtual = "." }
 dependencies = [
     { name = "asgi-types" },
@@ -1170,7 +1170,7 @@ wheels = [
 
 [[package]]
 name = "siteforge"
-version = "0.0.2"
+version = "0.0.3"
 source = { editable = "src/siteforge" }
 dependencies = [
     { name = "starlette" },
