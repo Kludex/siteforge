@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import sys
 from typing import TYPE_CHECKING
 
 from starlette.applications import Starlette
@@ -11,7 +12,12 @@ from starlette.types import ASGIApp
 from siteforge.routing import Router
 
 if TYPE_CHECKING:
-    from typing import Any, Callable, ParamSpec, Sequence, TypeVar
+    if sys.version_info >= (3, 10):
+        from typing import ParamSpec
+    else:
+        from typing_extensions import ParamSpec
+
+    from typing import Any, Callable, Sequence, TypeVar
 
     _P = ParamSpec("_P")
     _R = TypeVar("_R")
@@ -27,7 +33,7 @@ class SiteForge(Starlette):
         debug: bool = False,
         routes: Sequence[BaseRoute] | None = None,
         middleware: Sequence[Middleware] | None = None,
-        # TODO: Add lifespan type hint.
+        # TODO: Add lifespan type hint from asgi-types.
         lifespan: Any | None = None,
     ) -> None:
         self.debug = debug
