@@ -21,7 +21,7 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 requires-python = ">=3.8"
-dependencies = ["siteforge", "forgeserver", "asgi-types"]
+dependencies = ["siteforge", "forgeserver[standard]", "asgi-types"]
 optional-dependencies = {}
 
 [dependency-groups]
@@ -35,6 +35,13 @@ dev = [
     "pytest-sugar",
     "dirty-equals",
     "inline-snapshot",
+    # ForgeServer test dependencies
+    "httpx==0.27.2",
+    "httptools>=0.6.3",
+    "pytest-mock==3.14.0",
+    "a2wsgi==1.10.7",
+    "wsproto==1.2.0",
+    "websockets==13.1",
 ]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings-python"]
 
@@ -72,9 +79,15 @@ docstring-code-format = true
 skip-magic-trailing-comma = true
 
 [tool.pytest.ini_options]
-addopts = "-rXs --strict-config --strict-markers"
+addopts = "-rX --strict-config --strict-markers"
 xfail_strict = true
-filterwarnings = ["error"]
+filterwarnings = [
+    "error",
+    'ignore: \"watchgod\" is deprecated\, you should switch to watchfiles \(`pip install watchfiles`\)\.:DeprecationWarning',
+    "ignore:ForgeServer's native WSGI implementation is deprecated.*:DeprecationWarning",
+    "ignore: 'cgi' is deprecated and slated for removal in Python 3.13:DeprecationWarning",
+    "ignore: remove second argument of ws_handler:DeprecationWarning:websockets",
+]
 
 [tool.coverage.run]
 branch = true
