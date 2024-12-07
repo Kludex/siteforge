@@ -29,3 +29,8 @@
 - [ ] Create Rust HTTP parser, and use it.
 - [ ] Wait for first body response to send headers.
 - [ ] Remove support for ASGI 2.
+
+## Infra
+
+- [ ] Run tests only when source code imported had changes.
+- [ ] Set development VERSION to `0.0.0`, and publish on every PR to `pypi.test`.
