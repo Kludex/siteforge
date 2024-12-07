@@ -15,7 +15,7 @@
 - [ ] Health endpoint.
     - [ ] Don't print access logs on health endpoint.
 - [ ] Add own routing system.
-- [ ] Add benchmarks.
+- [ ] Add benchmarks (https://github.com/CodSpeedHQ).
 - [ ] Remove anyio, but still support trio.
 - [ ] Rust multipart package.
 - [ ] Remove support for ASGI 2.
@@ -29,3 +29,8 @@
 - [ ] Create Rust HTTP parser, and use it.
 - [ ] Wait for first body response to send headers.
 - [ ] Remove support for ASGI 2.
+
+## Infra
+
+- [ ] Run tests only when source code imported had changes.
+- [ ] Set development VERSION to `0.0.0`, and publish on every PR to `pypi.test`.

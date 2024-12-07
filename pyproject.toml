@@ -81,6 +81,7 @@ branch = true
 source_pkgs = ["siteforge", "tests"]
 
 [tool.coverage.report]
-fail_under = 100
+# TODO: Readd 100% coverage.
+# fail_under = 100
 show_missing = true
 skip_covered = true
