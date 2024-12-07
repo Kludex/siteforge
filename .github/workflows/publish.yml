@@ -21,7 +21,7 @@ jobs:
           enable-cache: true
 
       - name: Build package
-        run: uv build
+        run: uv build --all-packages
 
       - name: Inspect package version
         id: inspect_package
@@ -56,3 +56,5 @@ jobs:
 
     - name: Publish distribution 📦 to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
+
+# TODO: Add pypi-test-publish job to publish to test.pypi.org.

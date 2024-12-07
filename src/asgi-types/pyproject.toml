@@ -5,7 +5,7 @@ build-backend = 'hatchling.build'
 [project]
 name = "asgi-types"
 description = "A collection of ASGI types. 🎉"
-version = "0.0.2"
+dynamic = ["version"]
 readme = "README.md"
 authors = [{ name = "Marcelo Trylesinski", email = "marcelotryle@gmail.com" }]
 classifiers = [
@@ -33,6 +33,10 @@ Homepage = "https://github.com/Kludex/siteforge"
 Source = "https://github.com/Kludex/siteforge"
 Twitter = "https://twitter.com/marcelotryle"
 Funding = "https://github.com/sponsors/Kludex"
+
+[tool.hatch.version]
+path = "../../VERSION"
+pattern = "(?P<version>[^']+)"
 
 [tool.hatch.build.targets.sdist]
 include = ["/README.md", "../../LICENSE", "/asgi_types"]
