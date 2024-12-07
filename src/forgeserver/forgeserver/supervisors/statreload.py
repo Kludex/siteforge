@@ -26,7 +26,7 @@ class StatReload(BaseReload):
         for file in self.iter_py_files():
             try:
                 mtime = file.stat().st_mtime
-            except OSError:  # pragma: nocover
+            except OSError:  # pragma: no cover
                 continue
 
             old_time = self.mtimes.get(file)

@@ -40,11 +40,11 @@ def yaml_logging_config(logging_config: dict) -> str:
 
 
 async def asgi_app(scope: Scope, receive: ASGIReceiveCallable, send: ASGISendCallable) -> None:
-    pass  # pragma: nocover
+    pass
 
 
 def wsgi_app(environ: Environ, start_response: StartResponse) -> None:
-    pass  # pragma: nocover
+    pass
 
 
 @pytest.mark.parametrize("app, expected_should_reload", [(asgi_app, False), ("tests.test_config:asgi_app", True)])
@@ -261,10 +261,10 @@ def test_ssl_config_combined(tls_certificate_key_and_chain_path: str) -> None:
 
 
 def asgi2_app(scope: Scope) -> typing.Callable:
-    async def asgi(receive: ASGIReceiveCallable, send: ASGISendCallable) -> None:  # pragma: nocover
+    async def asgi(receive: ASGIReceiveCallable, send: ASGISendCallable) -> None:  # pragma: no cover
         pass
 
-    return asgi  # pragma: nocover
+    return asgi  # pragma: no cover
 
 
 @pytest.mark.parametrize("app, expected_interface", [(asgi_app, "3.0"), (asgi2_app, "2.0")])
