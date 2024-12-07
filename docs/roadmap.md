@@ -29,6 +29,7 @@
 - [ ] Create Rust HTTP parser, and use it.
 - [ ] Wait for first body response to send headers.
 - [ ] Remove support for ASGI 2.
+- [ ] Add new logging system.
 
 ## Infra
 
