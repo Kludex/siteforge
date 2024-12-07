@@ -12,12 +12,13 @@ theme:
   icon:
     repo: fontawesome/brands/github-alt
   features:
-    - search.suggest
-    - search.highlight
     - content.tabs.link
     - content.code.annotate
     - content.code.copy
     - content.code.select
+    - navigation.sections
+    - search.suggest
+    - search.highlight
     - toc.follow
   font:
     text: "Ubuntu"
@@ -41,7 +42,10 @@ theme:
 nav:
   - Home: index.md
   - Roadmap: roadmap.md
-  - API Reference: api.md
+  - SiteForge:
+      - API Reference: siteforge/api.md
+  - ForgeServer:
+      - Introduction: forgeserver/index.md
 
 markdown_extensions:
   - toc:
