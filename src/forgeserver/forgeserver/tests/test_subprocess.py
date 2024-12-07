@@ -34,7 +34,7 @@ def test_subprocess_started() -> None:
     config = Config(app=app, fd=fd)
     config.load()
 
-    with patch("tests.test_subprocess.server_run") as mock_run:
+    with patch("forgeserver.tests.test_subprocess.server_run") as mock_run:
         with patch.object(config, "configure_logging") as mock_config_logging:
             subprocess_started(config, server_run, [fdsock], None)
             mock_run.assert_called_once()
