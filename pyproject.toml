@@ -81,7 +81,7 @@ docstring-code-format = true
 skip-magic-trailing-comma = true
 
 [tool.pytest.ini_options]
-addopts = "-rX --strict-config --strict-markers -n auto"
+addopts = "-rX --strict-config --strict-markers -n 8"
 xfail_strict = true
 filterwarnings = [
     "error",
