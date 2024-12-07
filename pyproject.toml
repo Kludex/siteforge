@@ -31,6 +31,7 @@ dev = [
     "pre-commit",
     # Test dependencies
     "coverage[toml]",
+    "coverage-enable-subprocess",
     "pytest",
     "pytest-sugar",
     "pytest-xdist[psutil]",
@@ -93,10 +94,21 @@ filterwarnings = [
 
 [tool.coverage.run]
 branch = true
-source_pkgs = ["siteforge", "forgeserver", "asgi_types"]
+parallel = true
+concurrency = ["multiprocessing", "thread"]
+source = ["src/"]
 
 [tool.coverage.report]
 # TODO: Readd 100% coverage.
 # fail_under = 100
+precision = 2
 show_missing = true
 skip_covered = true
+exclude_lines = [
+    "pragma: no cover",
+    "pragma: full coverage",
+    "if TYPE_CHECKING:",
+    "if typing.TYPE_CHECKING:",
+    "raise NotImplementedError",
+    "pass",
+]
