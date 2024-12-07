@@ -19,6 +19,7 @@
 - [ ] Remove anyio, but still support trio.
 - [ ] Rust multipart package.
 - [ ] Remove support for ASGI 2.
+- [ ] Multiple response output format depending on the `Accept` header.
 
 ## ForgeServer
 
