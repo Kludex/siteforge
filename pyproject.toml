@@ -33,6 +33,7 @@ dev = [
     "coverage[toml]",
     "pytest",
     "pytest-sugar",
+    "pytest-xdist[psutil]",
     "dirty-equals",
     "inline-snapshot",
     # ForgeServer test dependencies
@@ -80,7 +81,7 @@ docstring-code-format = true
 skip-magic-trailing-comma = true
 
 [tool.pytest.ini_options]
-addopts = "-rX --strict-config --strict-markers"
+addopts = "-rX --strict-config --strict-markers -n auto"
 xfail_strict = true
 filterwarnings = [
     "error",
@@ -92,7 +93,7 @@ filterwarnings = [
 
 [tool.coverage.run]
 branch = true
-source_pkgs = ["siteforge", "tests"]
+source_pkgs = ["siteforge", "forgeserver", "asgi_types"]
 
 [tool.coverage.report]
 # TODO: Readd 100% coverage.
