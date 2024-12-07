@@ -72,6 +72,7 @@ select = [
     "UP",     # https://docs.astral.sh/ruff/rules/#pyupgrade-up
     "RUF100", # https://docs.astral.sh/ruff/rules/#ruff-specific-rules-ruf
 ]
+ignore = ["B904", "B028", "UP031"]
 isort = { combine-as-imports = true, split-on-trailing-comma = false }
 
 [tool.ruff.format]
