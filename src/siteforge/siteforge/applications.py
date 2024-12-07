@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import sys
 from typing import TYPE_CHECKING
 
 from starlette.applications import Starlette
@@ -12,15 +11,13 @@ from starlette.types import ASGIApp
 from siteforge.routing import Router
 
 if TYPE_CHECKING:
-    if sys.version_info >= (3, 10):
-        from typing import ParamSpec
-    else:
-        from typing_extensions import ParamSpec
-
-    from typing import Any, Callable, Sequence, TypeVar
+    from typing import Any, Callable, ParamSpec, Sequence, TypeVar
 
     _P = ParamSpec("_P")
     _R = TypeVar("_R")
+
+
+__all__ = ("SiteForge",)
 
 
 class SiteForge(Starlette):
