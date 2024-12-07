@@ -200,7 +200,10 @@ def test_app_unimportable_other(caplog: pytest.LogCaptureFixture) -> None:
         for record in caplog.records
         if record.name == "forgeserver.error" and record.levelname == "ERROR"
     ]
-    assert 'Error loading ASGI app. Attribute "app" not found in module "tests.test_config".' == error_messages.pop(0)
+    assert (
+        'Error loading ASGI app. Attribute "app" not found in module "forgeserver.tests.test_config".'
+        == error_messages.pop(0)
+    )
 
 
 def test_app_factory(caplog: pytest.LogCaptureFixture) -> None:
