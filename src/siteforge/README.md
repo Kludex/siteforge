@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="300px" src="docs/logo.svg" alt="starlette"/>
+  <img width="300px" src="docs/assets/siteforge.svg" alt="starlette"/>
 </p>
 <p align="center">
     <a href="https://github.com/Kludex/siteforge" target="_blank">
