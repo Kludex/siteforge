@@ -55,6 +55,7 @@ dev = [
     "anyio>=4,<5",
     "trio>=0.27.0",
     "itsdangerous",
+    "starlette @ git+https://github.com/encode/starlette.git@master",
 ]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings-python"]
 
