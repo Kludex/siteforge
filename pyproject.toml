@@ -21,7 +21,12 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 requires-python = ">=3.8"
-dependencies = ["siteforge", "forgeserver[standard]", "asgi-types"]
+dependencies = [
+    "siteforge",
+    "forgeserver[standard]",
+    "asgi-types",
+    "testclient",
+]
 optional-dependencies = {}
 
 [dependency-groups]
@@ -30,7 +35,7 @@ dev = [
     "mypy",
     "pre-commit",
     # Test dependencies
-    "coverage[toml]",
+    "coverage[toml]>=7.6.1",
     "coverage-enable-subprocess",
     "pytest",
     "pytest-sugar",
@@ -38,12 +43,18 @@ dev = [
     "dirty-equals",
     "inline-snapshot",
     # ForgeServer test dependencies
-    "httpx==0.27.2",
+    "httpx>=0.27.2",
     "httptools>=0.6.3",
     "pytest-mock==3.14.0",
     "a2wsgi==1.10.7",
     "wsproto==1.2.0",
     "websockets==13.1",
+    "trustme==1.1.0",
+    "watchfiles",
+    # SiteForge test dependencies
+    "anyio>=4,<5",
+    "trio>=0.27.0",
+    "itsdangerous",
 ]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings-python"]
 
@@ -55,6 +66,7 @@ default-groups = ["dev", "docs"]
 siteforge = { workspace = true }
 forgeserver = { workspace = true }
 asgi-types = { workspace = true }
+testclient = { workspace = true }
 
 [tool.uv.workspace]
 members = ["src/*/"]
@@ -75,21 +87,36 @@ select = [
     "RUF100", # https://docs.astral.sh/ruff/rules/#ruff-specific-rules-ruf
 ]
 ignore = ["B904", "B028", "UP031"]
-isort = { combine-as-imports = true, split-on-trailing-comma = false }
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+split-on-trailing-comma = false
 
 [tool.ruff.format]
 docstring-code-format = true
 skip-magic-trailing-comma = true
 
 [tool.pytest.ini_options]
-addopts = "-rX --strict-config --strict-markers -n 8"
+addopts = "-rxXs --strict-config --strict-markers -n 8"
 xfail_strict = true
 filterwarnings = [
     "error",
+    # From ForgeServer...
     'ignore: \"watchgod\" is deprecated\, you should switch to watchfiles \(`pip install watchfiles`\)\.:DeprecationWarning',
     "ignore:ForgeServer's native WSGI implementation is deprecated.*:DeprecationWarning",
     "ignore: 'cgi' is deprecated and slated for removal in Python 3.13:DeprecationWarning",
     "ignore: remove second argument of ws_handler:DeprecationWarning:websockets",
+    # From SiteForge...
+    "ignore: run_until_first_complete is deprecated and will be removed in a future version.:DeprecationWarning",
+    "ignore: starlette.middleware.wsgi is deprecated and will be removed in a future release.*:DeprecationWarning",
+    "ignore: Async generator 'starlette.requests.Request.stream' was garbage collected before it had been exhausted.*:ResourceWarning",
+    "ignore: path is deprecated.*:DeprecationWarning:certifi",
+    "ignore: Use 'content=<...>' to upload raw bytes/text content.:DeprecationWarning",
+    "ignore: The `allow_redirects` argument is deprecated. Use `follow_redirects` instead.:DeprecationWarning",
+    "ignore: 'cgi' is deprecated and slated for removal in Python 3.13:DeprecationWarning",
+    "ignore: You seem to already have a custom sys.excepthook handler installed. I'll skip installing Trio's custom handler, but this means MultiErrors will not show full tracebacks.:RuntimeWarning",
+    # TODO: This warning appeared when we bumped anyio to 4.4.0.
+    "ignore: Unclosed .MemoryObject(Send|Receive)Stream.:ResourceWarning",
 ]
 
 [tool.coverage.run]
@@ -97,6 +124,7 @@ branch = true
 parallel = true
 concurrency = ["multiprocessing", "thread"]
 source = ["src/"]
+data_file = ".coverage/.coverage"
 
 [tool.coverage.report]
 # TODO: Readd 100% coverage.

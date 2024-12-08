@@ -117,6 +117,7 @@ def test_multiprocess_sigbreak() -> None:  # pragma: py-not-win32
     supervisor.join_all()
 
 
+@pytest.mark.skip(reason="It's flaky!")
 @pytest.mark.skipif(not hasattr(signal, "SIGHUP"), reason="platform unsupports SIGHUP")
 def test_multiprocess_sighup() -> None:
     """

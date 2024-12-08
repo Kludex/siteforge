@@ -20,6 +20,7 @@
 - [ ] Rust multipart package.
 - [ ] Remove support for ASGI 2.
 - [ ] Multiple response output format depending on the `Accept` header.
+- [ ] Add other decompression middlewares (zstd, brotli, etc.)
 
 ## ForgeServer
 
@@ -30,6 +31,7 @@
 - [ ] Wait for first body response to send headers.
 - [ ] Remove support for ASGI 2.
 - [ ] Add new logging system.
+- [ ] Move reload and multiprocess to the `Server` class.
 
 ## Infra
 
