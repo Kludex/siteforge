@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "versioningit"]
 build-backend = 'hatchling.build'
 
 [project]
@@ -36,8 +36,7 @@ Twitter = "https://twitter.com/marcelotryle"
 Funding = "https://github.com/sponsors/Kludex"
 
 [tool.hatch.version]
-path = "../../VERSION"
-pattern = "(?P<version>[^']+)"
+source = "versioningit"
 
 [tool.hatch.build.targets.sdist]
 include = ["/README.md", "../../LICENSE", "/asgi_client"]
