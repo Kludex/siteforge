@@ -5,8 +5,8 @@ from typing import Any, Literal
 
 import pytest
 
+from asgi_client import TestClient
 from siteforge.tests.types import TestClientFactory
-from testclient import TestClient
 
 
 @pytest.fixture

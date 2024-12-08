@@ -8,6 +8,7 @@ from typing import Any, AsyncGenerator, AsyncIterator, Iterator
 
 import anyio
 import pytest
+from asgi_client import TestClient
 from starlette import status
 from starlette.types import Message, Receive, Scope, Send
 
@@ -16,7 +17,6 @@ from siteforge.datastructures import Headers
 from siteforge.requests import ClientDisconnect, Request
 from siteforge.responses import FileResponse, JSONResponse, RedirectResponse, Response, StreamingResponse
 from siteforge.tests.types import TestClientFactory
-from testclient import TestClient
 
 
 def test_text_response(test_client_factory: TestClientFactory) -> None:

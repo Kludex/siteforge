@@ -13,6 +13,7 @@ import sniffio
 import trio.lowlevel
 from starlette.types import ASGIApp, Receive, Scope, Send
 
+from asgi_client import TestClient
 from siteforge.applications import Starlette
 from siteforge.middleware import Middleware
 from siteforge.requests import Request
@@ -20,7 +21,6 @@ from siteforge.responses import JSONResponse, RedirectResponse, Response
 from siteforge.routing import Route
 from siteforge.tests.types import TestClientFactory
 from siteforge.websockets import WebSocket, WebSocketDisconnect
-from testclient import TestClient
 
 
 def mock_service_endpoint(request: Request) -> JSONResponse:

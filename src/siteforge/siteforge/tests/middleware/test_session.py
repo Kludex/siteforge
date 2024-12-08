@@ -1,5 +1,7 @@
 import re
 
+from asgi_client import TestClient
+
 from siteforge.applications import Starlette
 from siteforge.middleware import Middleware
 from siteforge.middleware.sessions import SessionMiddleware
@@ -7,7 +9,6 @@ from siteforge.requests import Request
 from siteforge.responses import JSONResponse
 from siteforge.routing import Mount, Route
 from siteforge.tests.types import TestClientFactory
-from testclient import TestClient
 
 
 def view_session(request: Request) -> JSONResponse:

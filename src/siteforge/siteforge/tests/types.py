@@ -3,9 +3,8 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Protocol
 
 import httpx
+from asgi_client import TestClient
 from starlette.types import ASGIApp
-
-from testclient import TestClient
 
 if TYPE_CHECKING:
 

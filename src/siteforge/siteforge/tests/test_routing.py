@@ -7,6 +7,7 @@ import typing
 import uuid
 
 import pytest
+from asgi_client import TestClient
 from starlette.routing import Host, Mount, NoMatchFound, Route, Router, WebSocketRoute
 from starlette.types import ASGIApp, Message, Receive, Scope, Send
 
@@ -17,7 +18,6 @@ from siteforge.requests import Request
 from siteforge.responses import JSONResponse, PlainTextResponse, Response
 from siteforge.tests.types import TestClientFactory
 from siteforge.websockets import WebSocket, WebSocketDisconnect
-from testclient import TestClient
 
 
 def homepage(request: Request) -> Response:

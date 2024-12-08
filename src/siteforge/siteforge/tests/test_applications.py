@@ -7,6 +7,7 @@ from typing import AsyncGenerator, AsyncIterator, Callable, Generator
 
 import anyio.from_thread
 import pytest
+from asgi_client import TestClient, WebSocketDenialResponse
 from starlette import status
 from starlette.types import ASGIApp, Receive, Scope, Send
 
@@ -20,7 +21,6 @@ from siteforge.routing import Host, Mount, Route, Router, WebSocketRoute
 from siteforge.staticfiles import StaticFiles
 from siteforge.tests.types import TestClientFactory
 from siteforge.websockets import WebSocket
-from testclient import TestClient, WebSocketDenialResponse
 
 
 async def error_500(request: Request, exc: HTTPException) -> JSONResponse:

@@ -1,6 +1,7 @@
 from typing import Generator
 
 import pytest
+from asgi_client import TestClient
 from starlette.types import Receive, Scope, Send
 
 from siteforge.exceptions import HTTPException, WebSocketException
@@ -9,7 +10,6 @@ from siteforge.requests import Request
 from siteforge.responses import JSONResponse, PlainTextResponse
 from siteforge.routing import Route, Router, WebSocketRoute
 from siteforge.tests.types import TestClientFactory
-from testclient import TestClient
 
 
 def raise_runtime_error(request: Request) -> None:
