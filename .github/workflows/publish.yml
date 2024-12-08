@@ -87,6 +87,7 @@ jobs:
       with:
         repository-url: https://test.pypi.org/legacy/
         skip-existing: true
+        verbose: true
 
 # TODO: Add pypi-test-publish job to publish to test.pypi.org.
 
