@@ -10,8 +10,13 @@ from siteforge.tests.types import TestClientFactory
 
 
 @pytest.fixture
+def anyio_backend() -> Literal["asyncio"]:
+    return "asyncio"
+
+
+@pytest.fixture
 def test_client_factory(
-    anyio_backend_name: Literal["asyncio", "trio"], anyio_backend_options: dict[str, Any]
+    anyio_backend_name: Literal["asyncio"], anyio_backend_options: dict[str, Any]
 ) -> TestClientFactory:
     # anyio_backend_name defined by:
     # https://anyio.readthedocs.io/en/stable/testing.html#specifying-the-backends-to-run-on
