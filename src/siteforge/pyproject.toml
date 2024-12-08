@@ -25,7 +25,7 @@ classifiers = [
 ]
 license = "MIT"
 requires-python = ">=3.8"
-dependencies = ["starlette @ git+https://github.com/encode/starlette.git", "python-multipart >=0.0.18"]
+dependencies = ["starlette", "python-multipart >=0.0.18"]
 optional-dependencies = {}
 
 [project.urls]
@@ -40,6 +40,3 @@ pattern = "(?P<version>[^']+)"
 
 [tool.hatch.build.targets.sdist]
 include = ["/README.md", "../../LICENSE", "/siteforge"]
-
-[tool.hatch.metadata]
-allow-direct-references = true

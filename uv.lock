@@ -1018,6 +1018,7 @@ dev = [
     { name = "pytest-sugar" },
     { name = "pytest-xdist", extra = ["psutil"] },
     { name = "ruff" },
+    { name = "starlette" },
     { name = "trio" },
     { name = "trustme" },
     { name = "watchfiles" },
@@ -1056,6 +1057,7 @@ dev = [
     { name = "pytest-sugar" },
     { name = "pytest-xdist", extras = ["psutil"] },
     { name = "ruff" },
+    { name = "starlette", git = "https://github.com/encode/starlette.git?rev=master" },
     { name = "trio", specifier = ">=0.27.0" },
     { name = "trustme", specifier = "==1.1.0" },
     { name = "watchfiles" },
@@ -1588,7 +1590,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "python-multipart", specifier = ">=0.0.18" },
-    { name = "starlette", git = "https://github.com/encode/starlette.git" },
+    { name = "starlette" },
 ]
 
 [[package]]
@@ -1621,7 +1623,7 @@ wheels = [
 [[package]]
 name = "starlette"
 version = "0.41.3"
-source = { git = "https://github.com/encode/starlette.git#8a99adfb5839b37efee33f2f49c1ba27a954fcbd" }
+source = { git = "https://github.com/encode/starlette.git?rev=master#8a99adfb5839b37efee33f2f49c1ba27a954fcbd" }
 dependencies = [
     { name = "anyio" },
     { name = "typing-extensions", marker = "python_full_version < '3.10'" },
