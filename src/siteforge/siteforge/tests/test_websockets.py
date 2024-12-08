@@ -4,13 +4,13 @@ from typing import Any, MutableMapping
 import anyio
 import pytest
 from anyio.abc import ObjectReceiveStream, ObjectSendStream
+from asgi_client import WebSocketDenialResponse
 from starlette import status
 from starlette.types import Message, Receive, Scope, Send
 
 from siteforge.responses import Response
 from siteforge.tests.types import TestClientFactory
 from siteforge.websockets import WebSocket, WebSocketDisconnect, WebSocketState
-from testclient import WebSocketDenialResponse
 
 
 def test_websocket_url(test_client_factory: TestClientFactory) -> None:
