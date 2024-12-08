@@ -3,11 +3,11 @@ requires-python = ">=3.8"
 
 [manifest]
 members = [
+    "asgi-client",
     "asgi-types",
     "forgeserver",
     "monorepo",
     "siteforge",
-    "testclient",
 ]
 
 [[package]]
@@ -36,6 +36,17 @@ sdist = { url = "https://files.pythonhosted.org/packages/4d/f9/9a7ce600ebe7804da
 wheels = [
     { url = "https://files.pythonhosted.org/packages/1b/b4/f7e396030e3b11394436358ca258a81d6010106582422f23443c16ca1873/anyio-4.5.2-py3-none-any.whl", hash = "sha256:c011ee36bc1e8ba40e5a81cb9df91925c218fe9b778554e0b56a21e1b5d4716f", size = 89766 },
 ]
+
+[[package]]
+name = "asgi-client"
+version = "0.0.4"
+source = { editable = "src/asgi-client" }
+dependencies = [
+    { name = "starlette" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "starlette" }]
 
 [[package]]
 name = "asgi-types"
@@ -983,10 +994,10 @@ name = "monorepo"
 version = "0.0.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "asgi-client" },
     { name = "asgi-types" },
     { name = "forgeserver", extra = ["standard"] },
     { name = "siteforge" },
-    { name = "testclient" },
 ]
 
 [package.dev-dependencies]
@@ -1021,10 +1032,10 @@ docs = [
 
 [package.metadata]
 requires-dist = [
+    { name = "asgi-client", editable = "src/asgi-client" },
     { name = "asgi-types", editable = "src/asgi-types" },
     { name = "forgeserver", extras = ["standard"], editable = "src/forgeserver" },
     { name = "siteforge", editable = "src/siteforge" },
-    { name = "testclient", editable = "src/testclient" },
 ]
 
 [package.metadata.requires-dev]
@@ -1567,7 +1578,7 @@ wheels = [
 
 [[package]]
 name = "siteforge"
-version = "0.0.3"
+version = "0.0.4"
 source = { editable = "src/siteforge" }
 dependencies = [
     { name = "python-multipart" },
@@ -1624,17 +1635,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/10/56/d7d66a84f96d80415
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d9/5f/8c716e47b3a50cbd7c146f45881e11d9414def768b7cd9c5e6650ec2a80a/termcolor-2.4.0-py3-none-any.whl", hash = "sha256:9297c0df9c99445c2412e832e882a7884038a25617c60cea2ad69488d4040d63", size = 7719 },
 ]
-
-[[package]]
-name = "testclient"
-version = "0.0.3"
-source = { editable = "src/testclient" }
-dependencies = [
-    { name = "starlette" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "starlette" }]
 
 [[package]]
 name = "tomli"

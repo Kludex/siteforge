@@ -24,8 +24,8 @@ requires-python = ">=3.8"
 dependencies = [
     "siteforge",
     "forgeserver[standard]",
+    "asgi-client",
     "asgi-types",
-    "testclient",
 ]
 optional-dependencies = {}
 
@@ -65,8 +65,8 @@ default-groups = ["dev", "docs"]
 [tool.uv.sources]
 siteforge = { workspace = true }
 forgeserver = { workspace = true }
+asgi-client = { workspace = true }
 asgi-types = { workspace = true }
-testclient = { workspace = true }
 
 [tool.uv.workspace]
 members = ["src/*/"]
