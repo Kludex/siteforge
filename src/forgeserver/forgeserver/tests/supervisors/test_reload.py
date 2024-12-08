@@ -159,7 +159,9 @@ class TestBaseReload:
 
             reloader.shutdown()
 
-    @pytest.mark.parametrize("reloader_class", [StatReload, WatchGodReload, WatchFilesReload])
+    @pytest.mark.parametrize(
+        "reloader_class", [StatReload, WatchGodReload, pytest.param(WatchFilesReload, marks=skip_if_m1)]
+    )
     def test_should_reload_when_directories_have_same_prefix(self, touch_soon) -> None:
         app_dir = self.reload_path / "app"
         app_file = app_dir / "src" / "main.py"

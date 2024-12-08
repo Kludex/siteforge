@@ -5,5 +5,5 @@ set -x # print executed commands to the terminal
 export COVERAGE_PROCESS_START=$(pwd)/pyproject.toml
 
 uv run coverage run -m pytest "${@}"
-uv run coverage combine
+uv run coverage combine $(find coverage -name ".coverage*")
 uv run coverage report

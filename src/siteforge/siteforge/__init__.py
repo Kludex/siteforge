@@ -1,5 +1,21 @@
 from .applications import SiteForge
-from .requests import Request
+from .datastructures import (
+    URL,
+    Address,
+    CommaSeparatedStrings,
+    Headers,
+    MultiDict,
+    MutableHeaders,
+    QueryParams,
+    State,
+    UploadFile,
+    URLPath,
+)
+from .middleware import Middleware
+from .middleware.cors import CORSMiddleware
+from .middleware.gzip import GZipMiddleware
+from .middleware.sessions import SessionMiddleware
+from .requests import ClientDisconnect, HTTPConnection, Request
 from .responses import (
     FileResponse,
     HTMLResponse,
@@ -15,6 +31,22 @@ from .websockets import WebSocket, WebSocketDisconnect
 __all__ = (
     # applications
     "SiteForge",
+    # datastructures
+    "Address",
+    "CommaSeparatedStrings",
+    "Headers",
+    "MutableHeaders",
+    "MultiDict",
+    "QueryParams",
+    "State",
+    "UploadFile",
+    "URL",
+    "URLPath",
+    # middleware
+    "Middleware",
+    "CORSMiddleware",
+    "GZipMiddleware",
+    "SessionMiddleware",
     # responses
     "FileResponse",
     "HTMLResponse",
@@ -24,6 +56,8 @@ __all__ = (
     "Response",
     "StreamingResponse",
     # requests
+    "ClientDisconnect",
+    "HTTPConnection",
     "Request",
     # routing
     "BaseRoute",
