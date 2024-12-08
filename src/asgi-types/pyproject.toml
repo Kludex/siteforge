@@ -36,6 +36,7 @@ Funding = "https://github.com/sponsors/Kludex"
 
 [tool.hatch.version]
 source = "versioningit"
+default-tag = "0.0.0"
 
 [tool.hatch.build.targets.sdist]
 include = ["/README.md", "../../LICENSE", "/asgi_types"]
