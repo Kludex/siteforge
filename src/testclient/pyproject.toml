@@ -40,4 +40,4 @@ path = "../../VERSION"
 pattern = "(?P<version>[^']+)"
 
 [tool.hatch.build.targets.sdist]
-include = ["/README.md", "../../LICENSE", "/asgi_types"]
+include = ["/README.md", "../../LICENSE", "/testclient"]
