@@ -5,8 +5,7 @@ import logging
 from asyncio import Queue
 from typing import Any, Union
 
-from forgeserver import Config
-from forgeserver._types import (
+from asgi_types import (
     LifespanScope,
     LifespanShutdownCompleteEvent,
     LifespanShutdownEvent,
@@ -15,6 +14,8 @@ from forgeserver._types import (
     LifespanStartupEvent,
     LifespanStartupFailedEvent,
 )
+
+from forgeserver import Config
 
 LifespanReceiveMessage = Union[LifespanStartupEvent, LifespanShutdownEvent]
 LifespanSendMessage = Union[

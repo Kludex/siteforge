@@ -10,15 +10,15 @@ from collections import deque
 from typing import Any, Callable, Literal, cast
 
 import httptools
-
-from forgeserver._types import (
-    ASGI3Application,
+from asgi_types import (
+    ASGIApplication,
     ASGIReceiveEvent,
     ASGISendEvent,
     HTTPRequestEvent,
     HTTPResponseStartEvent,
     HTTPScope,
 )
+
 from forgeserver.config import Config
 from forgeserver.logging import TRACE_LOG_LEVEL
 from forgeserver.protocols.http.flow_control import CLOSE_HEADER, HIGH_WATER_LIMIT, FlowControl, service_unavailable
@@ -92,7 +92,7 @@ class HttpToolsProtocol(asyncio.Protocol):
         self.server: tuple[str, int] | None = None
         self.client: tuple[str, int] | None = None
         self.scheme: Literal["http", "https"] | None = None
-        self.pipeline: deque[tuple[RequestResponseCycle, ASGI3Application]] = deque()
+        self.pipeline: deque[tuple[RequestResponseCycle, ASGIApplication]] = deque()
 
         # Per-request state
         self.scope: HTTPScope = None  # type: ignore[assignment]
@@ -408,7 +408,7 @@ class RequestResponseCycle:
         self.expected_content_length = 0
 
     # ASGI exception wrapper
-    async def run_asgi(self, app: ASGI3Application) -> None:
+    async def run_asgi(self, app: ASGIApplication) -> None:
         try:
             result = await app(  # type: ignore[func-returns-value]
                 self.scope, self.receive, self.send

@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import httpx
 import pytest
+from asgi_types import ASGIReceiveCallable, ASGISendCallable, Scope
 
 from forgeserver import Config
-from forgeserver._types import ASGIReceiveCallable, ASGISendCallable, Scope
 from forgeserver.tests.utils import run_server
 
 pytestmark = pytest.mark.anyio

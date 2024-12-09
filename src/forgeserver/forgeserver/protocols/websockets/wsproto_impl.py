@@ -7,13 +7,8 @@ from typing import Literal, cast
 from urllib.parse import unquote
 
 import wsproto
-from wsproto import ConnectionType, events
-from wsproto.connection import ConnectionState
-from wsproto.extensions import Extension, PerMessageDeflate
-from wsproto.utilities import LocalProtocolError, RemoteProtocolError
-
-from forgeserver._types import (
-    ASGI3Application,
+from asgi_types import (
+    ASGIApplication,
     ASGISendEvent,
     WebSocketAcceptEvent,
     WebSocketCloseEvent,
@@ -23,6 +18,11 @@ from forgeserver._types import (
     WebSocketScope,
     WebSocketSendEvent,
 )
+from wsproto import ConnectionType, events
+from wsproto.connection import ConnectionState
+from wsproto.extensions import Extension, PerMessageDeflate
+from wsproto.utilities import LocalProtocolError, RemoteProtocolError
+
 from forgeserver.config import Config
 from forgeserver.logging import TRACE_LOG_LEVEL
 from forgeserver.protocols.utils import (
@@ -47,7 +47,7 @@ class WSProtocol(asyncio.Protocol):
             config.load()  # pragma: full coverage
 
         self.config = config
-        self.app = cast(ASGI3Application, config.loaded_app)
+        self.app = config.loaded_app
         self.loop = _loop or asyncio.get_event_loop()
         self.logger = logging.getLogger("forgeserver.error")
         self.root_path = config.root_path

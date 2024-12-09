@@ -7,10 +7,8 @@ from typing import Any, Callable, Literal, cast
 from urllib.parse import unquote
 
 import h11
-from h11._connection import DEFAULT_MAX_INCOMPLETE_EVENT_SIZE
-
-from forgeserver._types import (
-    ASGI3Application,
+from asgi_types import (
+    ASGIApplication,
     ASGIReceiveEvent,
     ASGISendEvent,
     HTTPRequestEvent,
@@ -18,6 +16,8 @@ from forgeserver._types import (
     HTTPResponseStartEvent,
     HTTPScope,
 )
+from h11._connection import DEFAULT_MAX_INCOMPLETE_EVENT_SIZE
+
 from forgeserver.config import Config
 from forgeserver.logging import TRACE_LOG_LEVEL
 from forgeserver.protocols.http.flow_control import CLOSE_HEADER, HIGH_WATER_LIMIT, FlowControl, service_unavailable
@@ -402,7 +402,7 @@ class RequestResponseCycle:
         self.response_complete = False
 
     # ASGI exception wrapper
-    async def run_asgi(self, app: ASGI3Application) -> None:
+    async def run_asgi(self, app: ASGIApplication) -> None:
         try:
             result = await app(  # type: ignore[func-returns-value]
                 self.scope, self.receive, self.send

@@ -1,6 +1,6 @@
 import asyncio
 
-from forgeserver._types import ASGIReceiveCallable, ASGISendCallable, Scope
+from asgi_types import ASGIReceiveCallable, ASGISendCallable, Scope
 
 CLOSE_HEADER = (b"connection", b"close")
 

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import ipaddress
 
-from forgeserver._types import ASGI3Application, ASGIReceiveCallable, ASGISendCallable, Scope
+from asgi_types import ASGIApplication, ASGIReceiveCallable, ASGISendCallable, Scope
 
 
 class ProxyHeadersMiddleware:
@@ -20,7 +20,7 @@ class ProxyHeadersMiddleware:
     - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For>
     """
 
-    def __init__(self, app: ASGI3Application, trusted_hosts: list[str] | str = "127.0.0.1") -> None:
+    def __init__(self, app: ASGIApplication, trusted_hosts: list[str] | str = "127.0.0.1") -> None:
         self.app = app
         self.trusted_hosts = _TrustedHosts(trusted_hosts)
 

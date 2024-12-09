@@ -3,7 +3,7 @@ from __future__ import annotations
 import asyncio
 import urllib.parse
 
-from forgeserver._types import WWWScope
+from asgi_types import WWWScope
 
 
 class ClientDisconnected(OSError): ...

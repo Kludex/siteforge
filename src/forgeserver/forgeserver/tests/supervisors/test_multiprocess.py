@@ -9,9 +9,9 @@ import time
 from typing import Any, Callable
 
 import pytest
+from asgi_types import ASGIReceiveCallable, ASGISendCallable, Scope
 
 from forgeserver import Config
-from forgeserver._types import ASGIReceiveCallable, ASGISendCallable, Scope
 from forgeserver.supervisors import Multiprocess
 from forgeserver.supervisors.multiprocess import Process
 
