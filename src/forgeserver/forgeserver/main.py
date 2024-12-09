@@ -10,9 +10,9 @@ from configparser import RawConfigParser
 from typing import IO, Any, Callable
 
 import click
+from asgi_types import ASGIApplication
 
 import forgeserver
-from forgeserver._types import ASGIApplication
 from forgeserver.config import (
     HTTP_PROTOCOLS,
     INTERFACES,
@@ -136,7 +136,7 @@ def print_version(ctx: click.Context, param: click.Parameter, value: bool) -> No
     "--interface",
     type=INTERFACE_CHOICES,
     default="auto",
-    help="Select ASGI3, ASGI2, or WSGI as the application interface.",
+    help="Select ASGI3 or WSGI as the application interface.",
     show_default=True,
 )
 @click.option(

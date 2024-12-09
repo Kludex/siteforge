@@ -7,9 +7,9 @@ import time
 from typing import TYPE_CHECKING, Any
 
 import pytest
+from asgi_types import ASGIApplication, ASGIReceiveCallable, ASGISendCallable, Scope
 
 from forgeserver import Server
-from forgeserver._types import ASGIApplication, ASGIReceiveCallable, ASGISendCallable, Scope
 from forgeserver.config import WS_PROTOCOLS, Config
 from forgeserver.lifespan.off import LifespanOff
 from forgeserver.lifespan.on import LifespanOn
@@ -814,28 +814,6 @@ async def test_http2_upgrade_request(http_protocol_cls: HTTPProtocol, ws_protoco
     await protocol.loop.run_one()
     assert b"HTTP/1.1 200 OK" in protocol.transport.buffer
     assert b"Hello, world" in protocol.transport.buffer
-
-
-async def asgi3app(scope: Scope, receive: ASGIReceiveCallable, send: ASGISendCallable):
-    pass
-
-
-def asgi2app(scope: Scope):
-    async def asgi(receive: ASGIReceiveCallable, send: ASGISendCallable):
-        pass
-
-    return asgi
-
-
-@pytest.mark.parametrize(
-    "asgi2or3_app, expected_scopes",
-    [(asgi3app, {"version": "3.0", "spec_version": "2.3"}), (asgi2app, {"version": "2.0", "spec_version": "2.3"})],
-)
-async def test_scopes(asgi2or3_app: ASGIApplication, expected_scopes: dict[str, str], http_protocol_cls: HTTPProtocol):
-    protocol = get_connected_protocol(asgi2or3_app, http_protocol_cls)
-    protocol.data_received(SIMPLE_GET_REQUEST)
-    await protocol.loop.run_one()
-    assert expected_scopes == protocol.scope.get("asgi")
 
 
 @pytest.mark.parametrize(

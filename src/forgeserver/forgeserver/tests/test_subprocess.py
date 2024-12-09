@@ -3,8 +3,9 @@ from __future__ import annotations
 import socket
 from unittest.mock import patch
 
+from asgi_types import ASGIReceiveCallable, ASGISendCallable, Scope
+
 from forgeserver._subprocess import SpawnProcess, get_subprocess, subprocess_started
-from forgeserver._types import ASGIReceiveCallable, ASGISendCallable, Scope
 from forgeserver.config import Config
 
 

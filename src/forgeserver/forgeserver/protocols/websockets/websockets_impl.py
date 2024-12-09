@@ -8,16 +8,8 @@ from urllib.parse import unquote
 
 import websockets
 import websockets.legacy.handshake
-from websockets.datastructures import Headers
-from websockets.exceptions import ConnectionClosed
-from websockets.extensions.base import ServerExtensionFactory
-from websockets.extensions.permessage_deflate import ServerPerMessageDeflateFactory
-from websockets.legacy.server import HTTPResponse
-from websockets.server import WebSocketServerProtocol
-from websockets.typing import Subprotocol
-
-from forgeserver._types import (
-    ASGI3Application,
+from asgi_types import (
+    ASGIApplication,
     ASGISendEvent,
     WebSocketAcceptEvent,
     WebSocketCloseEvent,
@@ -29,6 +21,14 @@ from forgeserver._types import (
     WebSocketScope,
     WebSocketSendEvent,
 )
+from websockets.datastructures import Headers
+from websockets.exceptions import ConnectionClosed
+from websockets.extensions.base import ServerExtensionFactory
+from websockets.extensions.permessage_deflate import ServerPerMessageDeflateFactory
+from websockets.legacy.server import HTTPResponse
+from websockets.server import WebSocketServerProtocol
+from websockets.typing import Subprotocol
+
 from forgeserver.config import Config
 from forgeserver.logging import TRACE_LOG_LEVEL
 from forgeserver.protocols.utils import (
@@ -69,7 +69,7 @@ class WebSocketProtocol(WebSocketServerProtocol):
             config.load()
 
         self.config = config
-        self.app = cast(ASGI3Application, config.loaded_app)
+        self.app = cast(ASGIApplication, config.loaded_app)
         self.loop = _loop or asyncio.get_event_loop()
         self.root_path = config.root_path
         self.app_state = app_state

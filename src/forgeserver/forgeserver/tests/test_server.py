@@ -9,8 +9,8 @@ from typing import Callable, ContextManager, Generator
 
 import httpx
 import pytest
+from asgi_types import ASGIReceiveCallable, ASGISendCallable, Scope
 
-from forgeserver._types import ASGIReceiveCallable, ASGISendCallable, Scope
 from forgeserver.config import Config
 from forgeserver.protocols.http.h11_impl import H11Protocol
 from forgeserver.protocols.http.httptools_impl import HttpToolsProtocol

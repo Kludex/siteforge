@@ -9,11 +9,7 @@ import pytest
 import websockets
 import websockets.client
 import websockets.exceptions
-from typing_extensions import TypedDict
-from websockets.extensions.permessage_deflate import ClientPerMessageDeflateFactory
-from websockets.typing import Subprotocol
-
-from forgeserver._types import (
+from asgi_types import (
     ASGIReceiveCallable,
     ASGIReceiveEvent,
     ASGISendCallable,
@@ -24,6 +20,10 @@ from forgeserver._types import (
     WebSocketReceiveEvent,
     WebSocketResponseStartEvent,
 )
+from typing_extensions import TypedDict
+from websockets.extensions.permessage_deflate import ClientPerMessageDeflateFactory
+from websockets.typing import Subprotocol
+
 from forgeserver.config import Config
 from forgeserver.protocols.websockets.websockets_impl import WebSocketProtocol
 from forgeserver.tests.response import Response

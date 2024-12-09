@@ -6,8 +6,8 @@ import httpx
 import httpx._transports.asgi
 import pytest
 import websockets.client
+from asgi_types import ASGIReceiveCallable, ASGISendCallable, Scope
 
-from forgeserver._types import ASGIReceiveCallable, ASGISendCallable, Scope
 from forgeserver.config import Config
 from forgeserver.middleware.proxy_headers import ProxyHeadersMiddleware, _TrustedHosts
 from forgeserver.tests.response import Response

@@ -281,13 +281,4 @@ class ASGI2Protocol(Protocol):
     async def __call__(self, receive: ASGIReceiveCallable, send: ASGISendCallable) -> None: ...  # pragma: no cover
 
 
-ASGI2Application = Type[ASGI2Protocol]
-ASGI3Application = Callable[
-    [
-        Scope,
-        ASGIReceiveCallable,
-        ASGISendCallable,
-    ],
-    Awaitable[None],
-]
-ASGIApplication = Union[ASGI2Application, ASGI3Application]
+ASGIApplication = Callable[[Scope, ASGIReceiveCallable, ASGISendCallable], Awaitable[None]]

@@ -4,9 +4,9 @@ from logging import WARNING
 
 import httpx
 import pytest
+from asgi_types import ASGIReceiveCallable, ASGISendCallable, Scope
 
 from forgeserver import Server
-from forgeserver._types import ASGIReceiveCallable, ASGISendCallable, Scope
 from forgeserver.config import Config
 from forgeserver.main import run
 from forgeserver.tests.utils import run_server

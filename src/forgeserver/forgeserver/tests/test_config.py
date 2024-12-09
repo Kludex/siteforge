@@ -9,7 +9,7 @@ import socket
 import sys
 import typing
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any
 from unittest.mock import MagicMock
 
 import pytest
@@ -258,20 +258,6 @@ def test_ssl_config_combined(tls_certificate_key_and_chain_path: str) -> None:
     config.load()
 
     assert config.is_ssl is True
-
-
-def asgi2_app(scope: Scope) -> typing.Callable:
-    async def asgi(receive: ASGIReceiveCallable, send: ASGISendCallable) -> None:  # pragma: no cover
-        pass
-
-    return asgi  # pragma: no cover
-
-
-@pytest.mark.parametrize("app, expected_interface", [(asgi_app, "3.0"), (asgi2_app, "2.0")])
-def test_asgi_version(app: ASGIApplication, expected_interface: Literal["2.0", "3.0"]) -> None:
-    config = Config(app=app)
-    config.load()
-    assert config.asgi_version == expected_interface
 
 
 @pytest.mark.parametrize(

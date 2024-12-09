@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import asyncio
-import inspect
 import json
 import logging
 import logging.config
@@ -14,11 +13,10 @@ from pathlib import Path
 from typing import IO, Any, Awaitable, Callable, Literal
 
 import click
+from asgi_types import ASGIApplication
 
-from forgeserver._types import ASGIApplication
 from forgeserver.importer import ImportFromStringError, import_from_string
 from forgeserver.logging import TRACE_LOG_LEVEL
-from forgeserver.middleware.asgi2 import ASGI2Middleware
 from forgeserver.middleware.message_logger import MessageLoggerMiddleware
 from forgeserver.middleware.proxy_headers import ProxyHeadersMiddleware
 from forgeserver.middleware.wsgi import WSGIMiddleware
@@ -27,7 +25,7 @@ HTTPProtocolType = Literal["auto", "h11", "httptools"]
 WSProtocolType = Literal["auto", "none", "websockets", "wsproto"]
 LifespanType = Literal["auto", "on", "off"]
 LoopSetupType = Literal["none", "auto", "asyncio", "uvloop"]
-InterfaceType = Literal["auto", "asgi3", "asgi2", "wsgi"]
+InterfaceType = Literal["auto", "asgi3", "wsgi"]
 
 LOG_LEVELS: dict[str, int] = {
     "critical": logging.CRITICAL,
@@ -59,7 +57,7 @@ LOOP_SETUPS: dict[LoopSetupType, str | None] = {
     "asyncio": "forgeserver.loops.asyncio:asyncio_setup",
     "uvloop": "forgeserver.loops.uvloop:uvloop_setup",
 }
-INTERFACES: list[InterfaceType] = ["auto", "asgi3", "asgi2", "wsgi"]
+INTERFACES: list[InterfaceType] = ["auto", "asgi3", "wsgi"]
 
 SSL_PROTOCOL_VERSION: int = ssl.PROTOCOL_TLS_SERVER
 
@@ -328,7 +326,7 @@ class Config:
 
     @property
     def asgi_version(self) -> Literal["2.0", "3.0"]:
-        mapping: dict[str, Literal["2.0", "3.0"]] = {"asgi2": "2.0", "asgi3": "3.0", "wsgi": "3.0"}
+        mapping: dict[str, Literal["2.0", "3.0"]] = {"asgi3": "3.0", "wsgi": "3.0"}
         return mapping[self.interface]
 
     @property
@@ -434,20 +432,11 @@ class Config:
                 )
 
         if self.interface == "auto":
-            if inspect.isclass(self.loaded_app):
-                use_asgi_3 = hasattr(self.loaded_app, "__await__")
-            elif inspect.isfunction(self.loaded_app):
-                use_asgi_3 = asyncio.iscoroutinefunction(self.loaded_app)
-            else:
-                call = getattr(self.loaded_app, "__call__", None)
-                use_asgi_3 = asyncio.iscoroutinefunction(call)
-            self.interface = "asgi3" if use_asgi_3 else "asgi2"
+            self.interface = "asgi3"
 
         if self.interface == "wsgi":
             self.loaded_app = WSGIMiddleware(self.loaded_app)
             self.ws_protocol_class = None
-        elif self.interface == "asgi2":
-            self.loaded_app = ASGI2Middleware(self.loaded_app)
 
         if logger.getEffectiveLevel() <= TRACE_LOG_LEVEL:
             self.loaded_app = MessageLoggerMiddleware(self.loaded_app)

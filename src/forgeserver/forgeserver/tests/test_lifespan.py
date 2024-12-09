@@ -178,27 +178,6 @@ def test_lifespan_scope_asgi3app():
     loop.close()
 
 
-def test_lifespan_scope_asgi2app():
-    def asgi2app(scope):
-        assert scope == {"type": "lifespan", "asgi": {"version": "2.0", "spec_version": "2.0"}, "state": {}}
-
-        async def asgi(receive, send):
-            pass
-
-        return asgi
-
-    async def test():
-        config = Config(app=asgi2app, lifespan="on")
-        lifespan = LifespanOn(config)
-
-        await lifespan.startup()
-        await lifespan.shutdown()
-
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(test())
-    loop.close()
-
-
 @pytest.mark.parametrize("mode", ("auto", "on"))
 @pytest.mark.parametrize("raise_exception", (True, False))
 def test_lifespan_with_failed_shutdown(mode, raise_exception, caplog):

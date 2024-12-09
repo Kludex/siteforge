@@ -224,3 +224,4 @@ ASGIReceiveCallable = Callable[[], Awaitable[ASGIReceiveEvent]]
 ASGISendCallable = Callable[[ASGISendEvent], Awaitable[None]]
 
 ASGIApp = Callable[[Scope, ASGIReceiveCallable, ASGISendCallable], Awaitable[None]]
+ASGIApplication = ASGIApp

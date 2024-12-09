@@ -18,7 +18,7 @@
 - [ ] Add benchmarks (https://github.com/CodSpeedHQ).
 - [ ] Remove anyio, but still support trio.
 - [ ] Rust multipart package.
-- [ ] Remove support for ASGI 2.
+- [X] Remove support for ASGI 2.
 - [ ] Multiple response output format depending on the `Accept` header.
 - [ ] Add other decompression middlewares (zstd, brotli, etc.)
 
@@ -29,14 +29,14 @@
 - [ ] WebSockets sans-io support.
 - [ ] Create Rust HTTP parser, and use it.
 - [ ] Wait for first body response to send headers.
-- [ ] Remove support for ASGI 2.
+- [X] Remove support for ASGI 2.
 - [ ] Add new logging system.
 - [ ] Move reload and multiprocess to the `Server` class.
 
 ## Infra
 
 - [ ] Run tests only when source code imported had changes.
-- [ ] Set development VERSION to `0.0.0`, and publish on every PR to `pypi.test`.
+- [X] Set development VERSION to `0.0.0`, and publish on every PR to `pypi.test`.
 
 ## Documentation
 
