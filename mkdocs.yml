@@ -40,12 +40,17 @@ theme:
         name: Switch to system preference
 
 nav:
-  - Home: index.md
+  - Introduction: index.md
   - Roadmap: roadmap.md
   - SiteForge:
+      - QuickStart: siteforge/index.md
       - API Reference: siteforge/api.md
   - ForgeServer:
-      - Introduction: forgeserver/index.md
+      - QuickStart: forgeserver/index.md
+  - ASGI Client:
+      - QuickStart: asgi-client/index.md
+  - ASGI Types:
+      - QuickStart: asgi-types/index.md
 
 markdown_extensions:
   - toc:

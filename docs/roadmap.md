@@ -41,3 +41,4 @@
 ## Documentation
 
 - [ ] Add comments and reactions.
+- [ ] Add a release notes.
