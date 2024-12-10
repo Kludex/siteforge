@@ -39,7 +39,7 @@ wheels = [
 
 [[package]]
 name = "asgi-client"
-version = "0.0.4"
+version = "0.0.5.post13"
 source = { editable = "src/asgi-client" }
 dependencies = [
     { name = "starlette" },
@@ -50,7 +50,7 @@ requires-dist = [{ name = "starlette" }]
 
 [[package]]
 name = "asgi-types"
-version = "0.0.3"
+version = "0.0.5.post13"
 source = { editable = "src/asgi-types" }
 
 [[package]]
@@ -546,7 +546,7 @@ wheels = [
 
 [[package]]
 name = "forgeserver"
-version = "0.0.3"
+version = "0.0.5.post13"
 source = { editable = "src/forgeserver" }
 dependencies = [
     { name = "click" },
@@ -1026,6 +1026,7 @@ dev = [
     { name = "wsproto" },
 ]
 docs = [
+    { name = "black" },
     { name = "mkdocs" },
     { name = "mkdocs-material" },
     { name = "mkdocstrings-python" },
@@ -1065,6 +1066,7 @@ dev = [
     { name = "wsproto", specifier = "==1.2.0" },
 ]
 docs = [
+    { name = "black" },
     { name = "mkdocs" },
     { name = "mkdocs-material" },
     { name = "mkdocstrings-python" },
@@ -1580,7 +1582,7 @@ wheels = [
 
 [[package]]
 name = "siteforge"
-version = "0.0.4"
+version = "0.0.5.post13"
 source = { editable = "src/siteforge" }
 dependencies = [
     { name = "python-multipart" },

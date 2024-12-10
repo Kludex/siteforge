@@ -57,7 +57,7 @@ dev = [
     "itsdangerous",
     "starlette @ git+https://github.com/encode/starlette.git@master",
 ]
-docs = ["mkdocs", "mkdocs-material", "mkdocstrings-python"]
+docs = ["mkdocs", "mkdocs-material", "mkdocstrings-python", "black"]
 
 [tool.uv]
 package = false

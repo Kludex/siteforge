@@ -1,11 +1,15 @@
 site_name: SiteForge
 site_url: https://Kludex.github.io/siteforge
 site_author: Marcelo Trylesinski
-copyright: Copyright &copy; 2024 Marcelo Trylesinski
 
 repo_name: Kludex/siteforge
 repo_url: https://github.com/Kludex/siteforge
 edit_uri: edit/main/docs/
+
+copyright: © 2024 Marcelo Trylesinski
+extra:
+  # hide the "Made with Material for MkDocs" message
+  generator: false
 
 theme:
   name: material
@@ -39,6 +43,13 @@ theme:
         icon: material/lightbulb-outline
         name: Switch to system preference
 
+strict: true
+# https://www.mkdocs.org/user-guide/configuration/#validation
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+
 nav:
   - Introduction: index.md
   - Roadmap: roadmap.md
@@ -66,6 +77,9 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
 
+extra_css:
+  - extra/tweaks.css
+
 watch:
   - src/
 
@@ -84,4 +98,7 @@ plugins:
             merge_init_into_class: true
             parameter_headings: true
             show_signature_annotations: true
+            show_bases: false
             signature_crossrefs: true
+          import:
+            - url: https://docs.python.org/3/objects.inv

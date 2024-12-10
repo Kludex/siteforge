@@ -1,7 +1,7 @@
 # ForgeServer
 
 <p align="center">
-  <img width="300px" src="../assets/forgeserver.svg" alt="siteforge"/>
+  <img width="350px" src="../assets/forgeserver.svg" alt="forgeserver"/>
 </p>
 
 ---
